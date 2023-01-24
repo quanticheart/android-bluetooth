@@ -1,4 +1,4 @@
-package com.quanticheart.bluetooth.test.receivers
+package com.quanticheart.bluetooth.receivers
 
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothAdapter
@@ -6,7 +6,7 @@ import android.bluetooth.BluetoothDevice
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.quanticheart.bluetooth.test.extentions.log
+import com.quanticheart.bluetooth.extentions.log
 
 
 private val list = ArrayList<BluetoothDevice>()

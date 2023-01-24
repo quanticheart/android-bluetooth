@@ -29,7 +29,7 @@
 
     <application>
         <receiver
-            android:name="com.quanticheart.bluetooth.test.receivers.PairingRequest"
+            android:name="com.quanticheart.bluetooth.receivers.PairingRequest"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.bluetooth.device.action.PAIRING_REQUEST" />

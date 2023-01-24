@@ -3,13 +3,11 @@ package com.quanticheart.bluetooth
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.quanticheart.bluetooth.databinding.ActivityMainBinding
 import com.quanticheart.bluetooth.dialog.DialogHardwares
-import com.quanticheart.bluetooth.test.BluetoothManagement
-import com.quanticheart.bluetooth.test.listeners.BluetoothListener
-import com.quanticheart.bluetooth.test.mapper.model.Device
+import com.quanticheart.bluetooth.listeners.BluetoothListener
+import com.quanticheart.bluetooth.mapper.model.Device
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }

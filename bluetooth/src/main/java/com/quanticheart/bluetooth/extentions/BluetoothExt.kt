@@ -1,4 +1,4 @@
-package com.quanticheart.bluetooth.test.extentions
+package com.quanticheart.bluetooth.extentions
 
 import android.Manifest.permission.*
 import android.app.Activity
@@ -10,10 +10,15 @@ import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Build
 import android.util.Log
+import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import java.text.DecimalFormat
 import java.util.*
+import kotlin.math.log10
+import kotlin.math.pow
 
 //
 // Created by Jonn Alves on 21/01/23.
@@ -126,3 +131,37 @@ internal fun Context.getBluetoothAdapter(): BluetoothAdapter {
 
 private const val TAG = "Bluetooth Manager"
 internal fun Any?.log() = Log.d(TAG, this?.toString() ?: "empty var")
+
+fun Long.toReadableFileSize(): String {
+    if (this <= 0) return "?"
+    val units = arrayOf("B", "kB", "MB", "GB", "TB", "PB")
+    val digitGroups = (log10(this.toDouble()) / log10(1024.0)).toInt()
+    if (digitGroups > 6) return "?"
+    return DecimalFormat("#,##0.#").format(
+        this / 1024.0.pow(digitGroups.toDouble())
+    ) + " " + units[digitGroups]
+}
+
+internal inline fun <T : Any, V : Any> safeLet(p1: T?, p2: V?, block: (T, V) -> Unit) {
+    if (p1 != null && p2 != null) {
+        block(p1, p2)
+    }
+}
+
+internal fun <T : View> Activity.bind(@IdRes idRes: Int) =
+    lazy(LazyThreadSafetyMode.NONE) { findViewById<T>(idRes) }
+
+internal inline fun <reified T : Any?> AppCompatActivity.argument(key: String) = lazy {
+    intent.extras?.let {
+        return@lazy it[key] as T
+    }
+    return@lazy null
+}
+
+internal inline fun <reified T : Any> AppCompatActivity.argument(key: String, defaultValue: T) =
+    lazy {
+        intent.extras?.let {
+            return@lazy it[key] as? T ?: defaultValue
+        }
+        return@lazy defaultValue
+    }

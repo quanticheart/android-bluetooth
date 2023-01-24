@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.quanticheart.bluetooth.base.dialog.BaseFragmentDialog
-import com.quanticheart.bluetooth.test.mapper.model.Device
+import com.quanticheart.bluetooth.mapper.model.Device
 import com.quanticheart.core.databinding.DialogHardwaresBinding
 import com.quanticheart.core.databinding.ItemHardwareBinding
 

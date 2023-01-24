@@ -1,11 +1,11 @@
-package com.quanticheart.bluetooth.test.mapper
+package com.quanticheart.bluetooth.mapper
 
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothClass
 import android.bluetooth.BluetoothDevice
 import android.os.Build
 
-import com.quanticheart.bluetooth.test.mapper.model.Device
+import com.quanticheart.bluetooth.mapper.model.Device
 
 //
 // Created by Jonn Alves on 21/01/23.

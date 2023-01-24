@@ -1,7 +1,7 @@
-package com.quanticheart.bluetooth.test.mapper.model
+package com.quanticheart.bluetooth.mapper.model
 
 import android.bluetooth.BluetoothDevice
-import com.quanticheart.bluetooth.test.extentions.log
+import com.quanticheart.bluetooth.extentions.log
 
 data class Device(
     val name: String = "",

@@ -1,6 +1,6 @@
-package com.quanticheart.bluetooth.test.listeners
+package com.quanticheart.bluetooth.listeners
 
-import com.quanticheart.bluetooth.test.mapper.model.Device
+import com.quanticheart.bluetooth.mapper.model.Device
 
 interface BluetoothListener {
 
